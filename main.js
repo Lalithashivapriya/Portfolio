@@ -97,6 +97,7 @@ closeBtns.forEach(btn => {
     });
 });
 
+
 const projects = {
     python: [
         {
@@ -163,18 +164,49 @@ function showProjects(category) {
 
     selectedProjects.forEach(project => {
         const projectElement = document.createElement('div');
+        projectElement.classList.add('project-detail'); // Optional: add a class for styling
+
         projectElement.innerHTML = `
-            <h4>${project.title}</h4>
+            <div class="project-header">
+                <h4>${project.title}</h4>
+                <button class="close-btn">X</button> <!-- Close button -->
+            </div>
             <p>${project.description}</p>
             <a href="${project.github}" target="_blank">View on GitHub</a>
         `;
+
+        // Event listener for close button
+        const closeBtn = projectElement.querySelector('.close-btn');
+        closeBtn.addEventListener('click', function() {
+            projectDetails.style.display = 'none'; // Hide project details
+        });
+
         projectDetails.appendChild(projectElement);
     });
 
     projectDetails.style.display = 'block'; // Show the details section
 }
 
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
 
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none'; // Show the current slide
+    });
+}
 
+function moveSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1; // Loop back to the last slide
+    } else if (currentSlide >= slides.length) {
+        currentSlide = 0; // Loop back to the first slide
+    }
+    showSlide(currentSlide);
+}
+
+// Initialize the slider by showing the first slide
+showSlide(currentSlide);
 
 
