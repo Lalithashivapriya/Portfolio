@@ -1,15 +1,13 @@
-// Toggle Icon navbar
-
+// Toggle Icon Navbar
 let menuIcon = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
 
-menuIcon.onclick = ()=> {
-    menuIcon.classList.toggle("fa-xmark");
-    navbar.classList.toggle("active");
-}
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle("fa-xmark"); // Toggle menu icon
+    navbar.classList.toggle("active"); // Show/hide navbar
+};
 
-//scroll section active link
-
+// Scroll section active link
 let sections = document.querySelectorAll("section");
 let navLinks = document.querySelectorAll("header nav a");
 
@@ -20,37 +18,37 @@ window.onscroll = () => {
         let height = sec.offsetHeight;
         let id = sec.getAttribute("id");
 
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach.apply(links =>{
-                links.classList.remove("active");
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(links => {
+                links.classList.remove("active"); // Remove active class from all links
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active'); // Add active class to current section link
             });
         }
     });
 
-//Sticky navbar
-let header = document.querySelector("header");
-header.classList.toggle("sticky", window.scrollY > 100);
+    // Sticky navbar effect
+    let header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 100);
 
-//remove toggle icon and navbar
-menuIcon.classList.remove("fa-xmark");
-navbar.classList.remove("active");
+    // Remove toggle icon and close navbar on scroll
+    menuIcon.classList.remove("fa-xmark");
+    navbar.classList.remove("active");
 };
 
-//scroll reveal
+// Scroll Reveal Animations
 ScrollReveal({
     distance: "80px",
     duration: 2000,
-    Delay: 200,
+    delay: 200,
 });
 
-ScrollReveal().reveal('.home-content, heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .project-box, .contact form', { origin: 'buttom' });
+ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img, .services-container, .project-box, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-contact h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
-//Typed js
-const typed = new Typed(".multiple-text",{
+// Typed.js Animation for dynamic text
+const typed = new Typed(".multiple-text", {
     strings: ["Frontend Developer", "Database Developer", "Game Developer"],
     typeSpeed: 70,
     backSpeed: 70,
@@ -65,39 +63,36 @@ const closeBtn = document.querySelector('.close-btn');
 
 readMoreBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    readMoreContainer.style.display = 'block';
+    readMoreContainer.style.display = 'block'; // Show read more section
 });
 
 // Hide 'Read More' Section
 closeBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    readMoreContainer.style.display = 'none';
+    readMoreContainer.style.display = 'none'; // Hide read more section
 });
-
 
 // Show specific 'Read More' Section based on the clicked service
 const readMoreBtns = document.querySelectorAll('.read-more-btn');
 const closeBtns = document.querySelectorAll('.close-btn');
 const readMoreContainers = document.querySelectorAll('.read-more-container');
 
-// Function to show the selected service details
 readMoreBtns.forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
         const serviceId = this.getAttribute('data-service');
-        document.getElementById(serviceId).style.display = 'block';
+        document.getElementById(serviceId).style.display = 'block'; // Show specific service section
     });
 });
 
-// Function to hide the 'Read More' container when 'Close' is clicked
 closeBtns.forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
-        this.parentElement.parentElement.style.display = 'none';
+        this.parentElement.parentElement.style.display = 'none'; // Hide service section
     });
 });
 
-
+// Project Details (Dynamic Content Display)
 const projects = {
     python: [
         {
@@ -146,7 +141,7 @@ const projects = {
         },
         {
             title: "Portfolio (HTML, CSS, JS)",
-            description: "A simple currency converter using HTML, CSS, and JavaScript.",
+            description: "A responsive portfolio showcasing my skills and projects.",
             github: "https://github.com/shivapriya032005/Portfolio"
         },
         {
@@ -157,14 +152,15 @@ const projects = {
     ]
 };
 
+// Function to display selected project details
 function showProjects(category) {
     const projectDetails = document.getElementById('project-details');
-    projectDetails.innerHTML = ''; // Clear any existing content
+    projectDetails.innerHTML = ''; // Clear previous content
     const selectedProjects = projects[category];
 
     selectedProjects.forEach(project => {
         const projectElement = document.createElement('div');
-        projectElement.classList.add('project-detail'); // Optional: add a class for styling
+        projectElement.classList.add('project-detail'); // Optional styling class
 
         projectElement.innerHTML = `
             <div class="project-header">
@@ -184,29 +180,28 @@ function showProjects(category) {
         projectDetails.appendChild(projectElement);
     });
 
-    projectDetails.style.display = 'block'; // Show the details section
+    projectDetails.style.display = 'block'; // Show project details
 }
 
+// Image Slider Functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
     slides.forEach((slide, i) => {
-        slide.style.display = (i === index) ? 'block' : 'none'; // Show the current slide
+        slide.style.display = (i === index) ? 'block' : 'none'; // Show selected slide
     });
 }
 
 function moveSlide(direction) {
     currentSlide += direction;
     if (currentSlide < 0) {
-        currentSlide = slides.length - 1; // Loop back to the last slide
+        currentSlide = slides.length - 1; // Loop to last slide
     } else if (currentSlide >= slides.length) {
-        currentSlide = 0; // Loop back to the first slide
+        currentSlide = 0; // Loop to first slide
     }
     showSlide(currentSlide);
 }
 
-// Initialize the slider by showing the first slide
+// Initialize slider by showing the first slide
 showSlide(currentSlide);
-
-
