@@ -667,101 +667,106 @@ button.next {
     text-decoration: underline;
 }
 
-/* BREAKPOINT */
+/* Breakpoints and Responsive Design */
 
+/* Large Screens */
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
     }
 }
 
+/* Tablets & Laptops */
 @media (max-width: 991px) {
-    .header{
+    .header {
         padding: 2rem 3%;
     }
 
-    section{
+    section {
         padding: 10rem 3%;
     }
 
-    .services{
+    .services {
         padding: 7rem;
     }
 
-    .projects{
+    .projects {
         padding-bottom: 7rem;
     }
 
-    .contact{
+    .contact {
         min-height: auto;
     }
 
-    .footer{
+    .footer {
         padding: 2rem 3%;
     }
 }
 
-@media (max-width: 768px){
-    #menu-icon{
+/* Tablets & Mobile Landscape */
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+
+    #menu-icon {
         display: block;
     }
 
-    .navbar{
+    .navbar {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 1rem 3%;
         background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, 0.2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
         display: none;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }
 
-    .navbar.active{
-        display: block;
+    .navbar.active {
+        display: flex;
     }
 
-    .navbar a{
-        display: block;
+    .navbar a {
+        margin: 1rem 0;
         font-size: 2rem;
-        margin: 3rem 0;
     }
-    .home{
+
+    .home {
         flex-direction: column;
     }
 
-    .home-content h3{
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h3 {
         font-size: 2.6rem;
     }
 
-    .home-content h1{
-        font-size: 5rem;
-    }
-
-    .home-content{
+    .home-content {
         order: 2;
     }
 
-    .home-img img{
+    .home-img img {
         width: 70vw;
         margin-top: 4rem;
     }
 
-    .about{
+    .about {
         flex-direction: column;
     }
 
-    .about-img img{
+    .about-img img {
         width: 90vw;
         margin-top: 4rem;
     }
 
-    .services h2{
-        margin-bottom: 3rem;
-    }
-
-    .projects h2{
+    .services h2, .projects h2 {
         margin-bottom: 3rem;
     }
 
@@ -770,24 +775,53 @@ button.next {
     }
 }
 
-@media (max-width: 617px){
+/* Small Tablets & Large Phones */
+@media (max-width: 617px) {
     .project-container {
         grid-template-columns: 1fr;
     }
 
-    .home-img img{
+    .home-img img {
         width: 80vw;
         margin-top: 8rem;
     }
 
-    .about-img img{
+    .about-img img {
         width: 100vw;
         margin-top: 4rem;
     }
 }
 
-@media (max-width: 450px){
-    html{
+/* Small Phones */
+@media (max-width: 480px) {
+    html {
+        font-size: 10px;
+    }
+
+    .header {
+        padding: 1rem 3%;
+    }
+
+    .home-content h1 {
+        font-size: 2rem;
+    }
+
+    .home-img img {
+        width: 80vw;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    .services-container {
+        flex-direction: column;
+    }
+}
+
+/* Very Small Devices */
+@media (max-width: 450px) {
+    html {
         font-size: 50%;
     }
 
@@ -795,186 +829,3 @@ button.next {
         width: 100%;
     }
 }
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    html {
-        font-size: 14px;
-    }
-
-    .header {
-        padding: 1.5rem 5%;
-    }
-
-    .home-content h1 {
-        font-size: 3rem;
-    }
-
-    .project-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 12px;
-    }
-
-    #menu-icon {
-        display: block;
-    }
-
-    .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-color);
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    .navbar a {
-        margin: 1rem 0;
-    }
-
-    .home {
-        flex-direction: column;
-    }
-
-    .home-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .home-img img {
-        width: 60vw;
-    }
-
-    .project-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    html {
-        font-size: 10px;
-    }
-
-    .header {
-        padding: 1rem 3%;
-    }
-
-    .home-content h1 {
-        font-size: 2rem;
-    }
-
-    .home-img img {
-        width: 80vw;
-    }
-
-    .project-container {
-        grid-template-columns: 1fr;
-    }
-
-    .services-container {
-        flex-direction: column;
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    html {
-        font-size: 14px;
-    }
-
-    .header {
-        padding: 1.5rem 5%;
-    }
-
-    .home-content h1 {
-        font-size: 3rem;
-    }
-
-    .project-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 12px;
-    }
-
-    #menu-icon {
-        display: block;
-    }
-
-    .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-color);
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    .navbar a {
-        margin: 1rem 0;
-    }
-
-    .home {
-        flex-direction: column;
-    }
-
-    .home-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .home-img img {
-        width: 60vw;
-    }
-
-    .project-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    html {
-        font-size: 10px;
-    }
-
-    .header {
-        padding: 1rem 3%;
-    }
-
-    .home-content h1 {
-        font-size: 2rem;
-    }
-
-    .home-img img {
-        width: 80vw;
-    }
-
-    .project-container {
-        grid-template-columns: 1fr;
-    }
-
-    .services-container {
-        flex-direction: column;
-    }
-}
-
