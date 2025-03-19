@@ -8,11 +8,11 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: "Dancing Script", cursive;
+    font-family: 'Dancing Script', cursive;
 }
 
 html{
-    font: size 15px;
+    font-size: 15px;
     overflow-x: hidden;
 }
 
