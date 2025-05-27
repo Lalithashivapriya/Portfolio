@@ -113,7 +113,7 @@ const projects = {
         {
             title: "Stego (Python, HTML, CSS, MySQL)",
             description: "A project to encrypt and decrypt messages into images while providing security.",
-            github: "https://github.com/shivapriya032005/LMS"
+            github: "https://github.com/shivapriya032005/Stego"
         }
     ],
     java: [
